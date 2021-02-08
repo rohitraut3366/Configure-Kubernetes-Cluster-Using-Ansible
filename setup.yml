@@ -1,6 +1,5 @@
 - hosts: localhost
   become: false
-  connection: local
   roles:
       - role: EC2
         vars:
