@@ -1,0 +1,16 @@
+---
+# defaults file for WorkerNode
+        
+# For RedHat/CentOS/Fedora
+rpm_repo_url: 'https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch'
+rpm_gpgkey: "https://packages.cloud.google.com/yum/doc/yum-key.gpg"
+
+#Debian
+apt_gpgkey: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+apt_repo_url: "deb https://apt.kubernetes.io/ kubernetes-xenial main"
+
+
+#General
+pkg: ["kubeadm", "kubectl", "kubelet"]
+service: ["docker", "kubelet"]
+

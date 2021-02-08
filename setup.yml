@@ -1,0 +1,21 @@
+- hosts: localhost
+  become: false
+  connection: local
+  roles:
+      - role: EC2
+        vars:
+           - tags: { "Name":"K8S-Master" }
+           - count: "1"
+
+      - role: EC2
+        vars:
+           - tags: { "Name":'K8S-WorkerNode' }
+           - count: 2 
+
+- hosts: tag_Name_K8S_Master
+  roles:
+      - role: K8S-Master
+
+- hosts: tag_Name_K8S_WorkerNode
+  roles:
+      - role: K8S-Worker

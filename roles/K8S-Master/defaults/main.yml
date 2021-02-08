@@ -1,0 +1,24 @@
+---
+# container 
+container_engine: docker
+container_daemon: docker
+
+# FOR RedHat/centos/Fedora Kubernetes
+rpm_repo_url: 'https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch'
+rpm_gpgkey: "https://packages.cloud.google.com/yum/doc/yum-key.gpg"
+
+#Debian
+apt_update: "sudo apt-get update && sudo apt-get install -y apt-transport-https curl"
+apt_gpgkey: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+apt_repo_url: "deb https://apt.kubernetes.io/ kubernetes-xenial main"
+
+# General
+pkg: ["kubeadm", "kubectl", "kubelet"]
+pod_network_cidr: "10.244.0.0/16"
+kubeadm_init: "kubeadm init --pod-network-cidr={{ pod_network_cidr }}  --ignore-preflight-errors=NumCPU --ignore-preflight-errors=Mem"
+service: ["{{ container_daemon }}", "kubelet"]
+cni_plugin: "kubectl apply  -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml"
+
+
+
+

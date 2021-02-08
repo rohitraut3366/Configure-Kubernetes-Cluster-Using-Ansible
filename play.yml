@@ -1,0 +1,7 @@
+- hosts: localhost
+  tasks:
+        - debug:
+             msg: "{{ item }}"
+             with_sequence:
+                  count: 8
+         

@@ -1,0 +1,15 @@
+---
+# tasks file for EC2
+- name: "Provisioning EC2 instance"
+  ec2:
+       key_name: "{{ key_name }}"
+       image: "{{ ami_id }}"
+       instance_type: "{{ instance_type }}"
+       region: "{{ region }}"
+       wait: yes
+       group: "{{ security_group_name }}"
+       instance_tags: "{{ tags }}"
+       count: "{{ count }}"
+
+- meta: refresh_inventory
+

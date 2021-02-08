@@ -1,0 +1,9 @@
+---
+# defaults file for EC2
+key_name: "myrdr66"
+ami_id: "ami-08e0ca9924195beba"
+instance_type: "t2.micro"
+region: "ap-south-1"
+security_group_name: "ALL Traffic"
+count: "1"
+tags: { "Name":"K8S-master" }
