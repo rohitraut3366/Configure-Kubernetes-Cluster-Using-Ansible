@@ -13,6 +13,18 @@ Role Variables
 
 A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
+##  Master Node inventory Group Name 
+```
+tag_Name_K8S_Master
+```
+For custome group name: You can change In tasks 
+```
+- name: Create token to join
+  command: "kubeadm token create  --print-join-command"
+  delegate_to: "{{ groups['tag_Name_K8S_Master'][0]  }}"
+  register: join_token
+
+```
 Dependencies
 ------------
 
